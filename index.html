@@ -1226,6 +1226,9 @@ html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid
   body,body[data-view]{background:#fff;color:#000;font-size:12pt}
   .gov-strip,.site-head,.h-hero,.h-sec,footer,.btn,.btn-row,.pager,.cats,.toast,details,.noprint,form.act,.searchbar,.chips,nav,.rel,.rel-d{display:none!important}
   .view{display:none!important;animation:none}
+  body[data-print="work"] #v-work{display:block!important}
+  body[data-print="work"] #wk-pick,body[data-print="work"] #wk-cases,body[data-print="work"] .wk-sendbtn,body[data-print="work"] .wk-printbtn{display:none!important}
+  body[data-print="work"] #v-work h1,body[data-print="work"] #wk-title{display:block!important}
   body[data-print="check"] #v-check,body[data-print="prep"] #v-prep,body[data-print="actions"] #v-actions,body[data-print="patrol"] #v-patrol,body[data-print="report"] #v-report,body[data-print="risk"] #v-risk,body[data-print="edu"] #v-edu,body[data-print="edusheet"] #v-edu{display:block!important}
   body[data-print="edusheet"] #v-edu>*:not(#edu-sheet){display:none!important}
   body[data-print="edusheet"] #edu-sheet{display:block!important}
@@ -2452,7 +2455,7 @@ var GD={"first": {"q": "처음입니다", "w": "맨 위 · 담당자 → 개선�
     if(!WK.id){$("#wk-pick").hidden=false;$("#wk-run").hidden=true}
   }
   function wkProg(){$("#wk-prog").textContent=WK.ans.filter(Boolean).length+" / "+WK.ans.length+" 확인";var f=WK.ans.some(function(r){return r==="fix"});$("#wk-alert").hidden=!f}
-  document.addEventListener("click",function(e){if(e.target.closest("#wk-print")){try{window.print()}catch(x){}}if(e.target.closest("#wk-send")){var tt=$("#wk-title").textContent+"\n\n"+$$("#wk-items .wk-item p").map(function(p,i){return (i+1)+". "+p.textContent}).join("\n")+"\n\n작업 시작 전 항목을 눈으로 확인하세요. 이상이 있으면 작업하지 말고 반장·관리감독자에게 알리세요. · 안전수첩";if(navigator.share){navigator.share({title:$("#wk-title").textContent,text:tt}).catch(function(){})}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(tt).then(function(){toast("내용을 복사했습니다. 카카오톡에 붙여넣기 하세요")},function(){toast("복사하지 못했습니다")})}else toast("이 브라우저에서는 보내기를 지원하지 않습니다")}});
+  document.addEventListener("click",function(e){if(e.target.closest("#wk-print")){document.body.setAttribute("data-print","work");window.addEventListener("afterprint",function(){document.body.removeAttribute("data-print")},{once:true});try{window.print()}catch(x){document.body.removeAttribute("data-print")}}if(e.target.closest("#wk-send")){var tt=$("#wk-title").textContent+"\n\n"+$$("#wk-items .wk-item p").map(function(p,i){return (i+1)+". "+p.textContent}).join("\n")+"\n\n작업 시작 전 항목을 눈으로 확인하세요. 이상이 있으면 작업하지 말고 반장·관리감독자에게 알리세요. · 안전수첩";var okc=function(){toast("내용을 복사했습니다. 카카오톡에 붙여넣기 하세요")};var coarse=false;try{coarse=window.matchMedia("(pointer:coarse)").matches}catch(x){}if(navigator.share&&coarse){navigator.share({title:$("#wk-title").textContent,text:tt}).catch(function(){})}else{try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(tt).then(okc,function(){wkFallback(tt,okc)});return}}catch(x){}wkFallback(tt,okc)}}});
   var CASES={
     press:[
       ["금형 안에 손을 넣어 이물질을 빼다가 끼임","작업자가 금형에 낀 부품을 손으로 빼려는 순간 다른 작업자가 발판 스위치를 밟아 슬라이드가 내려옴.","전원·에너지를 차단하지 않고 금형 안에 손을 넣음. 방호장치(안전울·양수조작식)가 없거나 해제된 상태.","금형 안에 손이 들어가는 작업은 반드시 정지·전원 차단·잠금(LOTO) 후 하고, 이물질은 손이 아니라 집게 같은 도구로 제거합니다."],
