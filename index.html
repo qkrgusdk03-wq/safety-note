@@ -1167,6 +1167,20 @@ html[data-theme][data-design="e"] .po-btns .btn{text-align:center;text-decoratio
 html[data-theme][data-design="e"] .wk-sendbtn{margin-top:18px;width:100%}
 html[data-theme][data-design="e"] .wk-sendbtn+.wk-printbtn{margin-top:10px}
 @media (max-width:900px){html[data-theme][data-design="e"] .wk-printbtn{display:none}}
+html[data-theme][data-design="e"] .e-ntc{display:flex;align-items:center;gap:10px;width:100%;margin:10px 0 0;padding:0 16px;min-height:52px;background:#F6F3F2;border:0;border-left:3px solid #002C5F;border-radius:0;font-size:15px;font-weight:600;color:#1A1A1A;text-align:left;cursor:pointer}
+html[data-theme][data-design="e"] .e-ntc-tag{background:#002C5F;color:#fff;font-size:12px;padding:2px 8px}
+html[data-theme][data-design="e"] .e-ntc i{margin-left:auto;font-style:normal;font-size:22px;color:#6B6460}
+html[data-theme][data-design="e"] .ntc{list-style:none;padding:18px 0}
+html[data-theme][data-design="e"] .ntc-tag{display:inline-block;background:#B3261E;color:#fff;font-size:13px;font-weight:700;padding:3px 10px;margin-bottom:8px}
+html[data-theme][data-design="e"] .ntc-title{display:block;font-size:20px;line-height:1.4;letter-spacing:-.02em;margin-bottom:6px}
+html[data-theme][data-design="e"] .ntc-dl{display:grid;grid-template-columns:56px 1fr;gap:10px 12px;margin:14px 0;padding:14px 0;border-top:1px solid #D9DDE3;border-bottom:1px solid #D9DDE3}
+html[data-theme][data-design="e"] .ntc-dl dt{font-weight:700;color:#002C5F}html[data-theme][data-design="e"] .ntc-dl dd{margin:0;line-height:1.6}
+html[data-theme][data-design="e"] .ntc-apply-h{margin:18px 0 6px;font-size:18px}
+html[data-theme][data-design="e"] .ntc-apply{display:grid;gap:8px;margin:12px 0}
+html[data-theme][data-design="e"] .ntc-apply .btn{text-align:center;text-decoration:none;min-height:50px;display:flex;align-items:center;justify-content:center}
+html[data-theme][data-design="e"] .ntc-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}html[data-theme][data-design="e"] .ntc-tbl th,html[data-theme][data-design="e"] .ntc-tbl td{border:1px solid #BFC4CC;padding:8px 4px;text-align:center}html[data-theme][data-design="e"] .ntc-tbl th{background:#F3F5F8}html[data-theme][data-design="e"] .ntc-tbl td{height:36px}
+@media (prefers-reduced-motion:no-preference){html[data-theme][data-design="e"] .e-ntc{animation:e-up .45s .2s both}}
+html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid #002C5F;color:#002C5F;background:#fff}
 @media print{
   :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#666}
   body,body[data-view]{background:#fff;color:#000;font-size:12pt}
@@ -1234,6 +1248,7 @@ html[data-theme][data-design="e"] .wk-sendbtn+.wk-printbtn{margin-top:10px}
       <h1 id="h-home">하루 한 가지씩,<br>안전을 차곡차곡</h1>
       <p class="lead">우리 사업장의 위험요인을 스스로 확인하고, 고칠 일을 정리하세요.</p>
       <button class="e-main" data-go="check" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 10l1.5 1.5L12 9M8 15l1.5 1.5L12 14"/><path d="M14 10h3M14 15h3"/></svg><span><b>사업장 자가점검</b><small>15개 문항 · 담당자용</small></span><em aria-hidden="true">시작하기 ›</em></button>
+      <button class="e-ntc" id="home-ntc" data-go="notice" type="button"><span class="e-ntc-tag">공지</span><span>안전보건 종합특강 참석 신청 ~ 11.23.(월)</span><i aria-hidden="true">›</i></button>
       <h2 class="e-sub">기계별 점검 내용</h2>
       <div class="e-mach"><a href="#work-press"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v4H5z"/><path d="M12 7v7"/><path d="M8 14h8"/><path d="M4 21h16v-3H4z"/></svg></i><b>프레스</b></a><a href="#work-shear"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l16 4"/><path d="M4 16l16-4"/><circle cx="5" cy="7" r="1.7"/><circle cx="5" cy="17" r="1.7"/></svg></i><b>전단기</b></a><a href="#work-crane"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4h3l9 4"/><path d="M6 8h12"/><path d="M15 8v6"/><path d="M13 14h4v3h-4z"/><path d="M4 21h6"/></svg></i><b>크레인</b></a><a href="#work-lift"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18"/><path d="M9 10l3-3 3 3M9 14l3 3 3-3"/></svg></i><b>리프트</b></a></div>
       <button class="e-all" data-go="work" type="button">기계 전체 보기 <span aria-hidden="true">›</span></button>
@@ -1586,7 +1601,32 @@ html[data-theme][data-design="e"] .wk-sendbtn+.wk-printbtn{margin-top:10px}
     </div>
   </div>
   <h2 style="font-size:20px;margin:28px 0 12px">공지</h2>
-  <ul class="notice-list"><li><b>등록된 공지가 없습니다.</b><div class="small muted">새로운 안내가 있으면 이곳에 표시합니다.</div></li></ul>
+  <ul class="notice-list" id="notice-list"><li class="ntc" id="ntc-seminar">
+    <span class="ntc-tag">참석 신청 ~ 11.23.(월)</span>
+    <b class="ntc-title">천안·아산지역 제조업 「안전보건 종합특강」 참석 안내</b>
+    <p class="small muted">대전지방고용노동청 천안지청 공문(산재예방감독과-4411, 2026. 11. 16.) 내용을 옮겨 적은 안내입니다. 이 사이트는 공식 사이트가 아니므로 자세한 내용은 공문 원문이나 아래 문의 전화로 확인하세요.</p>
+    <p>최근 천안·아산지역에서 중대재해가 집중 발생함에 따라 「레드존+」 집중관리 대책을 추진하고 있으며, 사업주·경영책임자의 현장 안전관리 역량 강화와 유사 사고 예방을 위해 「안전보건 종합특강」을 개최합니다. 적극 참석해 주시기 바랍니다.</p>
+    <dl class="ntc-dl">
+      <dt>일시</dt><dd>2026. 12. 2.(수) 13:30 ~ 16:00 (2시간 30분)</dd>
+      <dt>장소</dt><dd>한국기술교육대학교 제2캠퍼스 1층 대강당 (충남 천안시 서북구 과수원길 18)<br><span class="small muted">주차공간이 협소하니 가급적 대중교통을 이용하세요.</span></dd>
+      <dt>대상</dt><dd>천안·아산지역 제조업 사업주·안전관리자 등 안전보건관계자</dd>
+      <dt>자료</dt><dd>당일 책자 배포 예정</dd>
+      <dt>내용</dt><dd>① 산업안전 정책 및 감독·점검 방향<br>② 최근 중대재해 사고사례 및 재발방지 대책<br>③ 주요 안전·보건조치 위반사례<br>④ 외국인 고용 사업장 안전관리 방안</dd>
+    </dl>
+    <h3 class="ntc-apply-h" id="ntc-apply">신청하기</h3>
+    <p class="small">참석 예정 사업장은 <b>2026. 11. 23.(월)까지</b> 아래 두 방법 중 <b>한 가지만</b> 선택해 참석자 명단을 보내 주세요(중복 제출 불필요). 이 사이트에서 직접 접수하지 않고, 천안지청의 신청 방법으로 연결됩니다.</p>
+    <div class="ntc-apply" id="ntc-apply-btns">
+      <a class="btn primary lg" href="https://m.site.naver.com/2l6aI" target="_blank" rel="noopener noreferrer">① QR 신청서로 신청 (새 창)</a>
+      <a class="btn lg" href="mailto:sungjun0709@korea.kr?subject=%5B%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%20%EC%A2%85%ED%95%A9%ED%8A%B9%EA%B0%95%5D%20%EC%B0%B8%EC%84%9D%EC%9E%90%20%EB%AA%85%EB%8B%A8%20%282026.12.2.%29&body=%EC%82%AC%EC%97%85%EC%9E%A5%EB%AA%85%3A%0A%EC%A7%81%EC%B1%85%3A%0A%EC%84%B1%EB%AA%85%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EB%B9%84%EA%B3%A0%3A%0A%0A%28%EC%B0%B8%EC%84%9D%EC%9E%90%EA%B0%80%20%EC%97%AC%EB%9F%AC%20%EB%AA%85%EC%9D%B4%EB%A9%B4%20%EC%95%84%EB%9E%98%EC%97%90%20%EC%A4%84%EC%9D%84%20%EC%B6%94%EA%B0%80%ED%95%B4%20%EC%A0%81%EC%96%B4%20%EC%A3%BC%EC%84%B8%EC%9A%94%29">② 이메일로 신청 (명단 양식 자동 입력)</a>
+    </div>
+    <details class="po-help"><summary>이메일 명단 양식 · 주소 보기</summary>
+      <p class="small">받는 사람: sungjun0709@korea.kr</p>
+      <table class="ntc-tbl"><thead><tr><th>사업장명</th><th>직책</th><th>성명</th><th>연락처</th><th>비고</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+      <p class="small muted">이메일 앱이 열리지 않으면 위 주소로 직접 보내세요. 위 ‘이메일로 신청’ 버튼은 사용 중인 이메일 앱을 엽니다.</p>
+    </details>
+    <p class="ntc-closed small" id="ntc-closed" hidden><b>신청 기간(11. 23.)이 끝났습니다.</b></p>
+  </li><li id="ntc-empty" hidden><b>등록된 공지가 없습니다.</b><div class="small muted">새로운 안내가 있으면 이곳에 표시합니다.</div></li></ul>
+  <script>(function(){try{var n=new Date(),y=n.getFullYear(),m=n.getMonth()+1,d=n.getDate(),k=y*10000+m*100+d;var c=document.getElementById("ntc-closed"),b=document.getElementById("ntc-apply-btns"),s=document.getElementById("ntc-seminar"),e=document.getElementById("ntc-empty"),h=document.getElementById("home-ntc");if(k>20261123){if(c)c.hidden=false;if(b)b.hidden=true;if(h)h.hidden=true;var t=s&&s.querySelector(".ntc-tag");if(t)t.textContent="신청 마감"}if(k>20261202){if(s)s.hidden=true;if(e)e.hidden=false}}catch(x){}})()</script>
   <h2 style="font-size:20px;margin:28px 0 12px">담당자용: 매년 확인할 것</h2>
   <div class="card">
     <p class="due-box" id="due-box" aria-live="polite"></p>
