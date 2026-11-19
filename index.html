@@ -10,9 +10,12 @@
 <meta property="og:site_name" content="안전수첩">
 <meta property="og:title" content="안전수첩 · 사업장 안전보건 점검">
 <meta property="og:description" content="작업 전에 기계를 점검하고, 안전수칙과 교육 내용을 다시 확인하세요.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="안전수첩">
 <meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow">
 
 <title>안전수첩 · 사업장 안전보건 점검</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1155,6 +1158,15 @@ html[data-theme][data-design="e"] .e-main:active{transform:scale(.985)}
 html[data-theme][data-design="e"] .e-sub{margin:30px 0 0;font-size:15px;font-weight:700;color:#5F5A57;letter-spacing:0}
 html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
 @media (prefers-reduced-motion:no-preference){html[data-theme][data-design="e"] .e-main{animation:e-up .45s .1s both}}
+html[data-theme][data-design="e"] .foot-link a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:#002C5F;text-decoration:underline;text-underline-offset:3px}
+html[data-theme][data-design="e"] .po-help{margin-top:10px;border-top:1px solid #D9DDE3;padding-top:8px}
+html[data-theme][data-design="e"] .po-help summary{cursor:pointer;font-weight:700;color:#002C5F;min-height:44px;display:flex;align-items:center}
+html[data-theme][data-design="e"] .po-help ul{margin:6px 0 8px;padding-left:18px;font-size:15px;line-height:1.65}
+html[data-theme][data-design="e"] .po-btns{display:grid;gap:8px;margin:10px 0}
+html[data-theme][data-design="e"] .po-btns .btn{text-align:center;text-decoration:none;min-height:48px;display:flex;align-items:center;justify-content:center}
+html[data-theme][data-design="e"] .wk-sendbtn{margin-top:18px;width:100%}
+html[data-theme][data-design="e"] .wk-sendbtn+.wk-printbtn{margin-top:10px}
+@media (max-width:900px){html[data-theme][data-design="e"] .wk-printbtn{display:none}}
 @media print{
   :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#666}
   body,body[data-view]{background:#fff;color:#000;font-size:12pt}
@@ -1355,7 +1367,18 @@ html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
     <li><i class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4-3 7-8 9-5-2-8-5-8-9V7z"/><path d="M12 8v5M12 16h.01"/></svg></i><b>작업 중지, 대피, 응급조치</b>중대재해가 발생하면 즉시 해당 작업을 중지시키고 근로자를 대피시키는 등 필요한 조치를 해야 합니다.<small>근거: 산업안전보건법 제54조 제1항</small></li>
     <li><i class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20l3-10h8l3 10"/><path d="M9 14h6"/><path d="M10 6l2-3 2 3"/></svg></i><b>현장을 보존하고 접근을 막습니다</b>원인 조사가 끝날 때까지 현장을 함부로 치우거나 바꾸지 않습니다.<small>일반적인 안내입니다. 관할 노동관서의 지시가 있으면 따르세요.</small></li>
     <li><i class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></i><b>관할 노동관서에 지체 없이 보고합니다</b>중대재해가 발생한 사실을 알게 되면 지체 없이 사업장 소재지를 관할하는 지방고용노동관서에 전화·팩스 등으로 보고합니다. 발생 개요, 피해 상황, 조치 및 전망 등을 알립니다.<small>근거: 산업안전보건법 제54조 제2항, 시행규칙 제67조. 중대재해의 범위(사망 외 요양 기간·인원 기준)는 관련 규정을 확인하거나 관할 노동관서에 문의하세요.</small></li>
-    <li><i class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></i><b>산업재해조사표를 제출합니다</b>사망했거나 3일 이상의 휴업이 필요한 부상·질병이 생기면 발생일부터 1개월 이내에 관할 지방고용노동관서에 제출합니다. 근로복지공단에 요양급여를 신청했더라도 조사표는 따로 제출해야 합니다.<small>근거: 산업안전보건법 제57조 제3항, 시행규칙 제73조</small></li>
+    <li><i class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></i><b>산업재해조사표를 제출합니다</b>사망했거나 3일 이상의 휴업이 필요한 부상·질병이 생기면 발생일부터 1개월 이내에 관할 지방고용노동관서에 제출합니다. 근로복지공단에 요양급여를 신청했더라도 조사표는 따로 제출해야 합니다.<small>근거: 산업안전보건법 제57조 제3항, 시행규칙 제73조</small>
+      <details class="po-help"><summary>작성 양식·제출 방법 보기</summary>
+        <ul>
+          <li><b>양식</b>: 산업안전보건법 시행규칙 별지 제30호서식 「산업재해조사표」(2025. 5. 30. 개정)입니다. 아래 버튼으로 양식 파일(한글 hwp)을 내려받을 수 있습니다.</li>
+          <li><b>확인</b>: 작성한 조사표에는 근로자대표(재해자)의 확인을 받습니다(시행규칙 제73조 제3항).</li>
+          <li><b>제출처</b>: 사업장을 관할하는 지방고용노동관서(산재예방감독과)입니다. 전자문서로 제출할 수 있습니다(시행규칙 제73조 제1항).</li>
+          <li><b>제출 방법</b>: 고용노동부 노동포털(labor.moel.go.kr)에서 안내하는 방법으로 제출합니다. 이 사이트에서 대신 제출하지 않습니다.</li>
+          <li><b>주의</b>: 기한 내 미제출·거짓 제출은 과태료 대상입니다. 금액과 기한 계산은 상황에 따라 달라 여기서 계산하지 않습니다. 관할 관서에 문의하세요.</li>
+        </ul>
+        <p class="po-btns"><a class="btn primary" href="sanjae-josapyo-2025.hwp" download>산업재해조사표 양식 내려받기 (한글 hwp)</a><a class="btn" href="https://labor.moel.go.kr/main/main.do" target="_blank" rel="noopener noreferrer">노동포털 바로가기 (새 창)</a></p>
+        <small>확인일 2026-11-19 · 고용노동부 안내(‘산업재해 발생 시 산업재해조사표를 작성·제출하여야 합니다’)와 시행규칙 제73조 기준</small>
+      </details></li>
   </ol>
   
   <p class="small law-stamp" style="margin-top:16px"></p>
@@ -1456,7 +1479,8 @@ html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
     <p class="wk-prog" id="wk-prog" aria-live="polite"></p>
     <p class="wk-read">작업을 시작하기 전에 아래 항목을 하나씩 눈으로 확인하세요. 이상이 있으면 작업하지 말고 반장·관리감독자에게 알리세요.</p>
     <div id="wk-items"></div>
-    <button class="btn lg wk-printbtn" id="wk-print" type="button">이 화면 인쇄 · 저장</button>
+    <button class="btn primary lg wk-sendbtn" id="wk-send" type="button">이 점검 내용 보내기 (카카오톡 등)</button>
+    <button class="btn lg wk-printbtn" id="wk-print" type="button">이 화면 인쇄 · 저장 (PC)</button>
     <label class="f wk-zone">메모 (선택)<textarea id="wk-memo" rows="2" maxlength="300" placeholder="이상이 있으면 적어 두세요"></textarea></label>
     <div class="wk-photo">
       <b>문제 부위 사진 (선택)</b>
@@ -1539,7 +1563,6 @@ html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
   <h1 class="page-title" id="h-res" style="font-size:clamp(26px,5vw,38px)">예방자료</h1>
   <p class="page-sub">위험요인별 예방자료입니다. 공단 OPS는 핵심 내용을 한두 장으로 정리한 현장용 안내 자료로, 인쇄해 작업장에 붙여 두기 좋습니다.</p>
   <p class="small muted" style="margin:0 0 16px">이 사이트는 자료를 직접 보관하지 않고 안전보건공단(KOSHA)·고용노동부 등 공식 게시처로 연결합니다. 자료마다 표기된 이용 조건(공공누리 유형)을 지켜 활용하세요.</p>
-  <p style="margin:0 0 18px"><a class="btn primary sm" href="https://portal.kosha.or.kr/archive/cent-archive/master-arch" target="_blank" rel="noopener noreferrer">안전보건공단 자료실 바로가기 (새 창)</a></p>
   <div class="searchbar"><input id="r-q" type="search" placeholder="자료 검색 (예: 지게차, 끼임)" aria-label="자료 검색"></div>
   <div class="chips" id="r-chips" role="group" aria-label="주제 필터"></div>
   <p class="small muted" id="r-count" aria-live="polite"></p>
@@ -1555,6 +1578,7 @@ html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
       <h3>문의</h3>
       <p class="small" style="margin-top:8px">사업장 안의 문의는 안전보건관리자에게 알려 주세요.</p>
       <p class="small">법령과 제도에 대한 문의는 사업장 소재지를 관할하는 지방고용노동관서와 안전보건공단에 확인하세요.</p>
+      <p class="foot-link" style="margin-top:8px"><a href="https://www.moel.go.kr" target="_blank" rel="noopener noreferrer">고용노동부 홈페이지 바로가기 (새 창) ›</a></p>
     </div>
     <div class="card">
       <h3>자료 출처</h3>
@@ -1583,6 +1607,7 @@ html[data-theme][data-design="e"] .e-sub+.e-mach{margin-top:10px}
   <div class="wrap">
     <p><b>안전수첩</b> · 사업장 안전보건 점검·기록 도구</p>
     <p>이 사이트의 점검표와 안내는 참고용이며 공식 평가·인증·감독 판단이 아닙니다. 법령 안내는 화면에 적힌 확인일 기준입니다.</p>
+    <p class="small">이 사이트는 고용노동부의 공식 사이트가 아닙니다.</p>
   </div>
   </footer>
 <div id="print-bar" class="noprint" role="status" hidden><span>인쇄 모드입니다. 인쇄 창이 안 열리면 브라우저 메뉴의 <b>인쇄</b>(PC는 Ctrl+P, 휴대폰은 공유 → 인쇄)를 누르세요. 지금 보는 내용만 인쇄됩니다.</span><button type="button" class="btn sm" id="print-end">인쇄 모드 끝내기</button></div>
@@ -2337,7 +2362,7 @@ var GD={"first": {"q": "처음입니다", "w": "맨 위 · 담당자 → 개선�
     if(!WK.id){$("#wk-pick").hidden=false;$("#wk-run").hidden=true}
   }
   function wkProg(){$("#wk-prog").textContent=WK.ans.filter(Boolean).length+" / "+WK.ans.length+" 확인";var f=WK.ans.some(function(r){return r==="fix"});$("#wk-alert").hidden=!f}
-  document.addEventListener("click",function(e){if(e.target.closest("#wk-print"))window.print()});
+  document.addEventListener("click",function(e){if(e.target.closest("#wk-print")){try{window.print()}catch(x){}}if(e.target.closest("#wk-send")){var tt=$("#wk-title").textContent+"\n\n"+$$("#wk-items .wk-item p").map(function(p,i){return (i+1)+". "+p.textContent}).join("\n")+"\n\n작업 시작 전 항목을 눈으로 확인하세요. 이상이 있으면 작업하지 말고 반장·관리감독자에게 알리세요. · 안전수첩";if(navigator.share){navigator.share({title:$("#wk-title").textContent,text:tt}).catch(function(){})}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(tt).then(function(){toast("내용을 복사했습니다. 카카오톡에 붙여넣기 하세요")},function(){toast("복사하지 못했습니다")})}else toast("이 브라우저에서는 보내기를 지원하지 않습니다")}});
   function wkOpen(id,nopush){
     var m=wkMach(id);if(!m||!m.it.length){WK.id=null;renderWork();return}
     WK={id:id,ans:m.it.map(function(){return ""})};
