@@ -1303,7 +1303,7 @@ html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid
 
 <div class="kk-banner" id="kk" role="note" hidden translate="no">
   <button class="kk-x" id="kk-x" type="button" aria-label="닫기">×</button>
-  <p><b>카카오톡 안에서 열렸습니다.</b> 사진 보내기·홈 화면 추가가 안 될 수 있습니다. 화면 구석의 <b>⋮(더보기)</b>에서 <b>‘다른 브라우저로 열기’</b>를 눌러 크롬이나 사파리로 여세요.</p>
+  <p><b>카카오톡 안에서 열렸습니다.</b> 여기서 쓴 기록은 창을 닫으면 사라질 수 있고, 사진 보내기·홈 화면 추가도 안 될 수 있습니다. 화면 구석의 <b>⋮(더보기)</b>에서 <b>‘다른 브라우저로 열기’</b>를 눌러 크롬이나 사파리로 여세요.</p>
   <p lang="en">Opened inside KakaoTalk. Tap ⋮ → Open in other browser.</p>
   <p lang="vi">Đang mở trong KakaoTalk. Chạm ⋮ → Mở bằng trình duyệt khác.</p>
   <p lang="zh">正在 KakaoTalk 内打开。点 ⋮ → 用其他浏览器打开。</p>
@@ -2716,6 +2716,7 @@ var GD={"first": {"q": "처음입니다", "w": "맨 위 · 담당자 → 개선�
     fs.forEach(function(f){wkResize(f,function(b){if(b&&WKP.length<3){WKP.push({blob:b,url:URL.createObjectURL(b)});wkThumbs()}else if(!b)toast("사진을 읽지 못했습니다")})})});
   $("#wk-pbtn").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();$("#wk-file").click()}});
   $("#wk-thumbs").addEventListener("click",function(e){var b=e.target.closest("button[data-d]");if(!b)return;var i=+b.dataset.d;try{URL.revokeObjectURL(WKP[i].url)}catch(x){}WKP.splice(i,1);wkThumbs()});
+  (function(){try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}})();
   (function(){var ua=navigator.userAgent||"";if(/KAKAOTALK/i.test(ua)){var dis=false;try{dis=sessionStorage.getItem("kkx")==="1"}catch(e){}if(!dis)$("#kk").hidden=false}
     $("#kk-x").addEventListener("click",function(){$("#kk").hidden=true;try{sessionStorage.setItem("kkx","1")}catch(e){}})})();
   $("#wk-grid").addEventListener("click",function(e){var b=e.target.closest("[data-wk]");if(b)wkOpen(b.dataset.wk)});
