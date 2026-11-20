@@ -2053,7 +2053,7 @@ html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid
   function doPrint(which){var d=today();$$(".print-foot").forEach(function(el){el.textContent="인쇄일 "+d+" · 안전수첩 · 참고용 기록이며 공식 평가·인증·감독 판단이 아닙니다."+(which==="actions"?" · 정렬: "+SORTS[sortMode]:"")});document.body.setAttribute("data-print",which);$("#print-bar").hidden=false;try{window.print()}catch(e){}}
   function endPrint(){document.body.removeAttribute("data-print");$("#print-bar").hidden=true}
   $("#print-end").addEventListener("click",endPrint);
-  window.addEventListener("afterprint",function(){setTimeout(endPrint,4000)});
+  
 
   /* ---------- actions ---------- */
   var editing=null;
