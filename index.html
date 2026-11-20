@@ -1277,6 +1277,9 @@ html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid
   .astats span{border:1px solid #000;background:#fff!important}
   .skip{display:none}
   main{padding:0}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .view,.view>*,.view *,.rv,.js-rv .rv,#tbm-sheet,#edu-sheet,#guide-sheet{opacity:1!important;transform:none!important}
+  #print-bar{display:none!important}
 }
 </style>
 </head>
@@ -2496,7 +2499,11 @@ html[data-theme][data-design="e"] .ntc-apply .btn:not(.primary){border:1px solid
     if(e.target.closest("[data-tbsheet]")){tbSheet(r);doPrint("tbmsheet")}
     else if(e.target.closest("[data-tbcopy]")){$("#tb-date").value=today();$("#tb-time").value=r.time;$("#tb-mach").value=r.mach;$("#tb-cnt").value=r.cnt;$("#tb-work").value=r.work;$("#tb-haz").value=r.haz;$("#tb-act").value=r.act;$("#tb-lead").value=r.lead;$("#tb-msg").value=r.msg;$("#tbm-form").scrollIntoView({block:"start"});toast("지난 기록을 불러왔습니다. 오늘 내용에 맞게 고쳐 저장하세요")}
     else if(e.target.closest("[data-tbdel]")){TB=TB.filter(function(x){return x!==r});saveTb();renderTbm()}});
-  $("#tb-print").addEventListener("click",function(){doPrint("tbm")});
+  $("#tb-print").addEventListener("click",function(){
+    var L=TB.filter(function(r){return !tbMon||r.date.slice(0,7)===tbMon}).sort(function(a,b){return (a.date+(a.time||"")).localeCompare(b.date+(b.time||""))});
+    if(!L.length){alert("인쇄할 TBM 기록이 없습니다.");return}
+    $("#tbm-sheet").innerHTML='<h2 style="margin:0 0 8px">TBM(작업 전 안전대화) 일지 목록'+(tbMon?' · '+esc(tbMon.slice(0,4))+'년 '+(+tbMon.slice(5))+'월':' · 전체')+'</h2><table class="es" style="width:100%;border-collapse:collapse"><tr><th>일시</th><th>작업·설비</th><th>위험요인</th><th>안전대책·전달</th><th>인원</th><th>진행자</th></tr>'+L.map(function(r){return '<tr><td>'+esc(r.date)+(r.time?'<br>'+esc(r.time):'')+'</td><td>'+esc(r.work)+(r.mach?'<br>('+esc(r.mach)+')':'')+'</td><td>'+esc(r.haz||"").replace(/\n/g,"<br>")+'</td><td>'+esc(r.act||"").replace(/\n/g,"<br>")+(r.msg?'<br>'+esc(r.msg):'')+'</td><td>'+(r.cnt!==""&&r.cnt!=null?esc(r.cnt)+'명':'')+'</td><td>'+esc(r.lead||"")+'</td></tr>'}).join("")+'</table>';
+    doPrint("tbmsheet")});
   $("#tb-clear").addEventListener("click",function(e){var b=e.currentTarget;
     if(b.dataset.arm){b.dataset.arm="";b.textContent="전체 삭제";TB=[];saveTb();renderTbm();toast("TBM 일지를 모두 지웠습니다")}
     else{b.dataset.arm="1";b.textContent="한 번 더 누르면 전체 삭제";setTimeout(function(){b.dataset.arm="";b.textContent="전체 삭제"},3500)}});
